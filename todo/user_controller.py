@@ -1,9 +1,14 @@
 import todo_controller
 from todo import data_manager
+from todo.validators.userValidator import check_credentials
 
 users = data_manager.load_users("users.json")
 
 def register_user(username, password):
+    condition, message = check_credentials(username, password)
+    if not condition:
+        return None, message
+
     for user in users:
         if username == user["username"]:
             print("el usuario ya existe.")
@@ -40,7 +45,6 @@ def update_user(user):
     return user
 
 
-user, msg = login_user("ferdy", "24062005")
-todo_controller.add_todo(user, "hacer video ingles")
-update_user(user)
+user, msg = register_user("222888888888888888", "<29888889898989898888888888888")
+print(user, msg)
 

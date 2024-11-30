@@ -1,10 +1,18 @@
 import customtkinter as tk
 
+from todo.user_controller import login_user
+
+
 def login_window(root):
     checked_password = False
 
     def handle_login():
-        pass
+        user, msg = login_user(entry_username.get(), entry_password.get())
+
+        if user:
+            print("se logeo")
+        else:
+            print(msg)
 
     def handle_comeback():
         app.destroy()
