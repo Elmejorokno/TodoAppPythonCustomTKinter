@@ -1,16 +1,15 @@
 import customtkinter as tk
 
-from todo.user_controller import login_user
+from todo.controllers.user_controller import register_user
 
 
-def login_window(root):
-    checked_password = False
+def register_window(root):
 
-    def handle_login():
-        user, msg = login_user(entry_username.get(), entry_password.get())
+    def handle_register():
+        user, msg = register_user(entry_username.get(), entry_password.get())
 
         if user:
-            print("se logeo")
+            print("el usuario se creo")
         else:
             print(msg)
 
@@ -29,7 +28,7 @@ def login_window(root):
         root.destroy()
 
     app = tk.CTkToplevel(root)
-    app.title("DoIt - Iniciar Sesión")
+    app.title("DoIt - Registrarse")
     app.geometry("400x400")
 
     app.protocol("WM_DELETE_WINDOW", handle_close)
@@ -48,10 +47,10 @@ def login_window(root):
                                        checkbox_width=20, checkbox_height=20, command=handle_showpassword)
     checkbox_password.place(relx=0.62, rely=0.32, anchor='center')
 
-    button_login = tk.CTkButton(app, text='Iniciar Sesión', corner_radius=20, fg_color="transparent",
+    button_register = tk.CTkButton(app, text='Registrarse', corner_radius=20, fg_color="transparent",
                                 hover_color="#942492",
-                                border_color="#942492", border_width=2, command=handle_login)
-    button_login.place(relx=0.5, rely=0.45, anchor='center')
+                                border_color="#942492", border_width=2, command=handle_register)
+    button_register.place(relx=0.5, rely=0.45, anchor='center')
 
     button_comeback = tk.CTkButton(app, text='Regresar', corner_radius=20, fg_color="transparent",
                                 hover_color="#942492",

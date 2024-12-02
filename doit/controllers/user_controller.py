@@ -1,8 +1,7 @@
-import todo_controller
 from todo import data_manager
 from todo.validators.userValidator import check_credentials
 
-users = data_manager.load_users("users.json")
+users = data_manager.load_users("../users.json")
 
 def register_user(username, password):
     condition, message = check_credentials(username, password)
@@ -22,7 +21,7 @@ def register_user(username, password):
 
     users.append(new_user)
 
-    data_manager.save_data("users.json", users)
+    data_manager.save_data("../users.json", users)
 
     return new_user, "Usuario registrado correctamente."
 
@@ -40,7 +39,7 @@ def update_user(user):
     for i, act_user in enumerate(users):
         if user["username"] == act_user["username"]:
             users[i] = user
-            data_manager.save_data("users.json", users)
+            data_manager.save_data("../users.json", users)
 
     return user
 

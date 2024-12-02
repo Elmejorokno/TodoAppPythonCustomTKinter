@@ -1,4 +1,4 @@
-def add_todo(user, name_todo, completed = False):
+def add_task_to_user(user, name_todo, completed = False):
     todo = {
         "name_todo": name_todo,
         "completed": completed
