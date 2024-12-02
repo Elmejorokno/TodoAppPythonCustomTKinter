@@ -1,8 +1,7 @@
 import customtkinter as tk
 
-from todo.views.login_window import login_window
-from todo.views.register_window import register_window
-
+from doit.views.login_window import login_window
+from doit.views.register_window import register_window
 
 def home_window():
     def handle_register():
